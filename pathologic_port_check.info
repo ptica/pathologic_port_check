@@ -1,0 +1,5 @@
+name = Pathologic port check
+description = Check the port as well
+dependencies[] = pathologic
+package = "Input filters"
+core = 7.x

@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file pathologic_port_check.module
+ * just one pathologic here
+ */
+
+
+/**
+ * Implements hook_pathologic_alter().
+ */
+function pathologic_port_check_pathologic_alter(&$url_params, $parts, $settings, $local_path_exploded=null) {
+	// If we're linking to url with port set, then
+	// have Pathologic pass through the original URL, without altering it.
+	// FIXME, here we should check the port in the matched $local_path_exploded
+	// as soon as our patch is accepted into pathologic
+	flog_it($exploded, 'exploded', 'pathologic');
+	if (@$parts['port']) {
+		$url_params['options']['use_original'] = TRUE;
+	}
+}
+
